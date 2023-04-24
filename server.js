@@ -13,11 +13,10 @@ app.use(express.static("public"));
 // This is the Middleware for parsing JSON and urlencoded form data
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-app.use("/api", api);
 
 require("./routes/apiRoutes")(app);
 
 // Starts the server
 app.listen(PORT, () => {
-  console.log(`App listening at PORT ${PORT}`);
+  console.log(`App listening at localhost:${PORT}`);
 });
