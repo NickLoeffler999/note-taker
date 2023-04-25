@@ -2,6 +2,7 @@
 const express = require("express");
 const fs = require("fs");
 const path = require("path");
+// const api = require("./routes/apiRoutes.js");
 // The variable 'app' will use the built in express function we just called.
 const app = express();
 // Creates the variable for ports to use.
@@ -13,6 +14,7 @@ app.use(express.static("public"));
 // This is the Middleware for parsing JSON and urlencoded form data
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+// app.use("/api");
 
 require("./routes/apiRoutes")(app);
 
