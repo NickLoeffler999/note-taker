@@ -11,6 +11,7 @@ Note: This is unfinished, I'm having trouble actually connecting the back end to
 The steps it takes to install this application are as follows:
 
 Open your CLI and clone the repository onto your local machine using the `git clone` command. Next, in your favorite code editor, open up the files you just cloned.
+Open your CLI once again, this time in your code editor, and then type `npm i` and click `enter` on your keyboard. This is going to install the node module packets needed for it to function.
 
 ## Usage
 
