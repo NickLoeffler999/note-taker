@@ -41,6 +41,7 @@ const saveNote = (note) =>
     },
     body: JSON.stringify(note),
   });
+
 // This is the delete request for the notes.
 const deleteNote = (id) =>
   fetch(`/api/notes/${id}`, {
@@ -75,6 +76,7 @@ const handleNoteSave = () => {
     getAndRenderNotes();
     renderActiveNote();
   });
+  window.location.reload();
 };
 
 // Delete the clicked note

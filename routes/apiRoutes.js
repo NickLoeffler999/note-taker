@@ -1,6 +1,7 @@
 // Sets up the dependencies for File Systems and path.
 const fs = require("fs");
 const path = require("path");
+const uuid = require("uuid/v1");
 
 module.exports = (app) => {
   //
@@ -14,15 +15,20 @@ module.exports = (app) => {
       res.json(notes);
     });
     // This creates the POST route for the notes.
-    app.post("api/notes", (req, res) => {
+    app.post("/api/notes", (req, res) => {
+      console.log(notes);
       let nextNote = req.body;
-      notes.push(nextNote);
-      updateDB();
-      return console.log("You added a new note!" + nextNote.title);
+      let noteObject = { ...req.body, id: uuid() };
+      notes.push(noteObject);
+      updateDataBase();
+
+      return console.log("You added a new note! " + nextNote.title);
     });
     // This function will allow the user to delete a note
     app.delete("/api/notes/:id", (req, res) => {
-      notes.splice(req.params.id, 1);
+      console.log("Note ID: ", req.params.id);
+      notes.filter((note) => note.id !== req.params.id);
+      console.log(notes, "Filtered Notes");
       updateDataBase();
       console.log("Success! You deleted this note: " + req.params.id);
     });
@@ -39,9 +45,9 @@ module.exports = (app) => {
     app.get("/notes", (req, res) => {
       res.sendFile(path.join(__dirname, "../public/index.html"));
     });
-    //updates the json file whenever a note is added or deleted
+    //updates the JSON file whenever a note is added or deleted
     function updateDataBase() {
-      fs.writeFile("db/db.json", JSON.stringify(notes, "/"), (err) => {
+      fs.writeFile("db/db.json", JSON.stringify(notes), (err) => {
         if (err) throw err;
         return true;
       });
