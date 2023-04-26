@@ -45,7 +45,7 @@ module.exports = (app) => {
     app.get("/notes", (req, res) => {
       res.sendFile(path.join(__dirname, "../public/index.html"));
     });
-    //updates the JSON file whenever a note is added or deleted
+    // This will update the JSON file whenever a note is added or deleted.
     function updateDataBase() {
       fs.writeFile("db/db.json", JSON.stringify(notes), (err) => {
         if (err) throw err;
