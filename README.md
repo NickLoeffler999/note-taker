@@ -2,7 +2,7 @@
 
 ## Description
 
-This project was designed for anyone who want to take notes, save them, and delete them. The application uses a back end powered by Express.js, which also creates the functionality of the app including saving and deleting the notes. I've learned a lot about Express.js while working on this project, and I've really learned a lot. I'm ready to continue learning more about the back-end side of web applications now!
+This project was designed for anyone who wants to take notes, save them, and delete them. The application uses a back end powered by Express.js, which also creates the functionality of the app including saving and deleting the notes. I've learned a lot about Express.js while working on this project, and I've really learned a lot. I'm ready to continue learning more about the back-end side of web applications now!
 
 Note: This is unfinished, as I'm having trouble with utilizing the delete button.
 
